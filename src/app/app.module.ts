@@ -13,7 +13,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { NgForOf, NgIf } from '@angular/common';
-
+import {NgxEchartsModule} from "ngx-echarts";
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   DisplayGrid,
@@ -24,10 +25,16 @@ import {
   GridType
 } from 'angular-gridster2';
 import { MarkdownModule } from 'ngx-markdown';
+import { DemoComponent } from './demo/demo.component';
+import { TableComponent } from './table/table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    DemoComponent,
+    TableComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,16 @@ import { MarkdownModule } from 'ngx-markdown';
     MarkdownModule,
 
     GridsterComponent,
-    GridsterItemComponent
+    GridsterItemComponent,
+    NgxEchartsModule.forRoot({
+      /**
+       * This will import all modules from echarts.
+       * If you only need custom modules,
+       * please refer to [Custom Build] section.
+       */
+      echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

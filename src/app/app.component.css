@@ -1,0 +1,9 @@
+.box {
+  display: flex;
+}
+.nav {
+  width: 200px;
+}
+.conetnt {
+  flex: 1;
+}
